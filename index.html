@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CPU Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>CPU Scheduling Simulator</h1>
+
+    <div class="controls">
+      <label for="algorithm">Algorithm:</label>
+      <select id="algorithm" onchange="toggleQuantum()">
+        <option>FCFS</option>
+        <option>SJF</option>
+        <option>SJF (Preemptive)</option>
+        <option>Priority</option>
+        <option>Priority (Preemptive)</option>
+        <option>Round Robin</option>
+      </select>
+      <input type="number" id="quantum" placeholder="Quantum" style="display: none;" />
+      <button onclick="addProcess()">Add Process</button>
+      <button onclick="runScheduler()">Simulate</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>PID</th>
+          <th>Arrival Time</th>
+          <th>Burst Time</th>
+          <th>Priority</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="processTable"></tbody>
+    </table>
+
+    <div id="output"></div>
+    <div id="gantt-chart" class="gantt-chart"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
